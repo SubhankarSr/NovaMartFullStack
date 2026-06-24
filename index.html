@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Mart – Product Catalog</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+
+  <header class="header" id="header">
+    <div class="header-inner">
+
+   
+      <a href="#" class="logo">
+        <span class="logo-icon">✦</span>
+        Nova<span class="logo-accent">Mart</span>
+      </a>
+
+      
+      <div class="search-wrap">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search products…"
+          aria-label="Search products"
+        />
+        <span class="search-icon">⌕</span>
+      </div>
+
+      
+      <div class="header-actions">
+     
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span id="themeIcon">🌙</span>
+        </button>
+
+      
+        <button class="cart-btn" id="cartToggle" aria-label="Open cart">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+          <span class="cart-label">Cart</span>
+        </button>
+
+        <button class="icon-btn mobile-filter-btn" id="filterToggle" aria-label="Toggle filters">
+          <span>⚙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-layout">
+
+    
+    <aside class="filter-sidebar" id="filterSidebar" aria-label="Filters">
+
+      <div class="sidebar-header">
+        <h2 class="sidebar-title">Filters</h2>
+        <button class="icon-btn close-filter" id="closeSidebar" aria-label="Close filters">✕</button>
+      </div>
+
+     
+      <section class="filter-section">
+        <h3 class="filter-label">Category</h3>
+        <select id="categoryFilter" class="filter-select" aria-label="Filter by category">
+          <option value="all">All Categories</option>
+        </select>
+      </section>
+
+     
+      <section class="filter-section">
+        <h3 class="filter-label">Max Price</h3>
+        <div class="range-wrap">
+          <input
+            type="range"
+            id="priceRange"
+            class="range-input"
+            min="0"
+            max="2000"
+            value="2000"
+            step="10"
+            aria-label="Maximum price"
+          />
+          <div class="range-labels">
+            <span>$0</span>
+            <span id="priceValue">$2000</span>
+          </div>
+        </div>
+      </section>
+
+     
+      <section class="filter-section">
+        <h3 class="filter-label">Rating</h3>
+        <div class="rating-filters" id="ratingFilters">
+          <button class="rating-btn active" data-rating="0">All</button>
+          <button class="rating-btn" data-rating="3">3★+</button>
+          <button class="rating-btn" data-rating="4">4★+</button>
+          <button class="rating-btn" data-rating="4.5">4.5★+</button>
+        </div>
+      </section>
+
+      
+      <button class="reset-btn" id="resetFilters">Reset Filters</button>
+
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    
+    <section class="product-area">
+
+    
+      <div class="toolbar">
+        <p class="result-count" id="resultCount">Loading products…</p>
+        <select id="sortSelect" class="sort-select" aria-label="Sort products">
+          <option value="featured">Featured</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="rating-desc">Best Rated</option>
+          <option value="name-asc">Name A–Z</option>
+        </select>
+      </div>
+
+      
+      <div class="loading-grid" id="loadingGrid" aria-live="polite" aria-label="Loading products">
+       
+      </div>
+
+      
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+
+      
+      <div class="no-results hidden" id="noResults" aria-live="polite">
+        <div class="no-results-icon">🔍</div>
+        <h3>No products found</h3>
+        <p>Try adjusting your filters or search term.</p>
+        <button class="reset-btn" id="resetFilters2">Reset Filters</button>
+      </div>
+
+    </section>
+  </main>
+
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h2 class="cart-title">Your Cart <span id="cartItemCount">(0)</span></h2>
+      <button class="icon-btn" id="closeCart" aria-label="Close cart">✕</button>
+    </div>
+
+    <div class="cart-body" id="cartBody">
+    
+    </div>
+
+    <div class="cart-empty hidden" id="cartEmpty">
+      <div class="cart-empty-icon">🛒</div>
+      <p>Your cart is empty.</p>
+      <p class="cart-empty-sub">Add some products to get started!</p>
+    </div>
+
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <span class="cart-total" id="cartTotal">$0.00</span>
+      </div>
+      <button class="checkout-btn">Checkout</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+ 
+  <footer class="footer">
+    <p>© 2025 NovaMart · Built with ♥ using Vanilla JS · Data via DummyJSON</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
